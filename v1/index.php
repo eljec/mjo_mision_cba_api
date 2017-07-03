@@ -1,7 +1,8 @@
 
  <?php 
- 
+
 	include("Controllers/ItineraryManager.php");
+	include("Controllers/SecionManager.php");
 
 	// Extraer segmento de la url
 	if (isset($_GET['PATH_INFO']))
@@ -25,12 +26,20 @@
 	switch ($metodo) {
 	    case 'get':
 	        // Procesar método get
-
 	    	if($recurso == 'itinerary')
 	    	{
 	    		$itineraryManager = new ItineraryManager();
 
 	    		$respuesta = $itineraryManager->getFullItinerary();
+			
+				echo $respuesta;
+	    	}
+
+	    	if($recurso == 'sections')
+	    	{
+	    		$sectionManager = new SecionManager();
+
+	    		$respuesta = $sectionManager->getSections();
 			
 				echo $respuesta;
 	    	}
